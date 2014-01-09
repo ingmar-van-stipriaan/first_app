@@ -91,7 +91,7 @@ GEM
       guard (>= 1.1)
       spork (>= 0.8.4)
       sys-proctable
-    haml (4.0.0)
+    haml (4.0.5)
       tilt
     haml-rails (0.4)
       actionpack (>= 3.1, < 4.1)
