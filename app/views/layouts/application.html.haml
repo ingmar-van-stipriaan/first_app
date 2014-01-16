@@ -4,10 +4,23 @@
     %title
       = full_title(yield(:title))
 
-    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags 
+    :plain
+      <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
 
   %body
-    = yield
+    %header.navbar
+      %nav.navbar.navbar-inverse.navbar-fixed-top
+        .container
+          = link_to "First app", root_path, :id => "logo", :class => "navbar-brand"
+          %ul.nav.navbar-nav
+            %li= link_to "Home", root_path
+            %li= link_to "Help", help_path
+            %li= link_to "About", about_path
+    .container
+      = yield
 
