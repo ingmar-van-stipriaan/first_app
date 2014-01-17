@@ -32,7 +32,8 @@ describe User do
 
   describe "when email format is invalid" do
     it "should be valid" do
-      addresses = %w[user@foo,com user_at_foo.org example.user@foo. foo@bar_baz.com foor@ba+fa.com]
+      addresses = %w[user@foo,com user_at_foo.org 
+        example.user@foo. foo@bar_baz.com foor@ba+fa.com]
       addresses.each do |invalid_addresses|
         @user.email = invalid_addresses
         @user.should_not be_valid
@@ -42,7 +43,8 @@ describe User do
 
   describe "when email format is valid" do
     it "should be valid" do
-      addresses = %w[user@foo.COM A_US-ER@f.b.org first.last@foo.jp ]
+      addresses = %w[user@foo.COM A_US-ER@f.b.org 
+        first.last@foo.jp ]
       addresses.each do |valid_addresses|
         @user.email = valid_addresses
         @user.should be_valid
@@ -88,7 +90,9 @@ describe User do
     end
 
     describe "with invalid password" do
-      let(:user_for_invalid_password) { found_user.authenticate("invalid") }
+      let(:user_for_invalid_password) { 
+        found_user.authenticate("invalid") 
+      }
       it { should_not == user_for_invalid_password }
       specify{ user_for_invalid_password.should be_false }
     end
