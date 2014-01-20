@@ -54,6 +54,7 @@ describe "User pages" do
         let(:user) {  User.find_by_email("example@example.com") }
 
         it { should have_selector("title", :text => full_title(user.name)) }
+        it { should have_link('Sign out') }
       end
 
     end
