@@ -1,0 +1,4 @@
+= render "shared/error_messages", :object => @micropost
+= form_for(@micropost) do |f|
+  = f.text_area :content, :placeholder => "Nieuwe post"
+  = f.submit "Post", :class => "btn btn-primary"

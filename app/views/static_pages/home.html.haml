@@ -1,3 +1,15 @@
-%h1 First App
-%p Dit is de homepagina
-= link_to "Sign up", signup_path, :class => "btn btn-primary"
+- if signed_in?
+  
+  .row
+    %aside.col-md-4
+      %section
+        = render 'shared/user_info'
+      %section
+        = render 'shared/micropost_form'
+    .col-md-8
+      %h3 Micropost feed
+      = render 'shared/feed'
+- else
+  %h1 First App
+  %p Dit is de homepagina
+  = link_to "Sign up", signup_path, :class => "btn btn-primary"
